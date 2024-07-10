@@ -26,6 +26,22 @@ pub mod windows{
     }
     
         pub fn scene_settings(&mut self, ui: &mut Ui) {
+            ui.label("Offset");
+                    ui.horizontal(|ui| {
+                        ui.add(
+                            Slider::new(&mut self.offset.0, 0.1..=100.0)
+                                .text("X"),
+                        );
+                        ui.add(
+                            Slider::new(&mut self.offset.1, 0.0..=100.0)
+                                .text("Y")
+                        );
+                    });
+            ui.label("Zoom");
+                        ui.add(
+                            Slider::new(&mut self.zoom, 0.00001..=1.0)
+                                .text("Zoom")
+                        );
         }
         
     }
@@ -83,7 +99,7 @@ pub mod windows{
             egui::ScrollArea::vertical().show(ui, |ui| {
                 ui.with_layout(egui::Layout::top_down_justified(egui::Align::LEFT), |ui| {
                     ui.label("Placeholder");
-                    if ui.button("Add Sphere").clicked() {
+                    if ui.button("Sandbox Window").clicked() {
                         self.show_sandbox_window = !self.show_sandbox_window;
                     }
             

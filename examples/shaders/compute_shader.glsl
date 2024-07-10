@@ -22,7 +22,7 @@ float distanceToMandelbrot(in vec2 c)
     vec2 z = vec2(0.0);
     float m2 = 0.0;
     vec2 dz = vec2(0.0);
-    for (int i = 0; i < 300; i++)
+    for (int i = 0; i < 1000; i++)
     {
         if (m2 > 1024.0) { di = 0.0; break; }
 
@@ -51,8 +51,8 @@ void main()
 
     vec2 p = normalized_coords * vec2(aspect_ratio, 1.0);
 
-    // Use the uniform float zoom for zooming and uniform vec2 offset for moving
-    vec2 c = vec2(-0.05, 0.6805) + offset + p * zoom;
+    // Adjusting zoom and offset to improve detail when zooming in
+    vec2 c = offset + p * zoom;
 
     // Distance to Mandelbrot
     float d = distanceToMandelbrot(c);
