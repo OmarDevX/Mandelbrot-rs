@@ -19,13 +19,15 @@ egui = "~0.27"
 sdl2 = { version = ">= 0.36, < 0.38" }
 memoffset = "0.9.0"
 glm = "0.2.3"
+epi = { version = ">= 0.17", optional = true }
 
-[dependencies.epi]
-version = "0.17"
-optional = true
+#[dependencies.epi]
+#version = ">= 0.17"
+#optional = true
+#features = ["use_epi"]
 
 [features]
-default = ["sdl2_bundled"]
+default = ["sdl2_bundled","use_epi"]
 
 sdl2_unsafe_textures = ["sdl2/unsafe_textures"]
 sdl2_gfx = ["sdl2/gfx"]
@@ -43,3 +45,4 @@ use_epi = ["epi"]
 
 [dev-dependencies]
 egui_demo_lib = "~0.27"
+epi = { version = ">= 0.17" }
